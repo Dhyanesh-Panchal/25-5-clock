@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: aliceblue;
+    font-family: sans-serif;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.App{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 25vh;
+}
+
+.timer-wrapper{
+    background-color: rgb(39, 39, 39);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    min-width: 40vw;
+}
+
+.time-setter{
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.buttons{
+    border: none;
+    background-color: rgb(39, 39, 39);
+    color: white;
+}
+
+/* to make text between the buttons inline */
+.type-display{
+    display: inline;
+    margin: 0 10px;
+}
+
+.clock{
+    background-color: rgb(80, 80, 80);
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px 20px;
+
+}
+
+.clock-time-type{
+    font-size: 1.5rem;
+}
+
+.clock-time{
+    font-size: 2.5rem;
+    margin: none;
+}
+
+.label-text{
+    font-size: 1.5rem;
+}
