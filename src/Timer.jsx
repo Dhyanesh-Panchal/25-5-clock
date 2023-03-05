@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Clock } from './AltClock'
+import { Clock } from './Clock'
 import TimeSetter from './TimeSetter'
 
 export default class Timer extends Component {

@@ -52,12 +52,18 @@ export const Clock = ({ state }) => {
 
     }, [state.play])
 
+    let FormattedTime = (min, sec) => {
+        let dMin = (min < 10) ? (`0${min}`) : (`${min}`);
+        let dSec = (sec < 10) ? (`0${sec}`) : (`${sec}`);
+
+        return `${dMin}:${dSec}`;
+    }
 
     return (
         <div className='clock'>
             {/* <div className="clock-time-type" id="timer-label">Session</div> */}
             <div className="clock-time-type" id='timer-label'>{state.currentTimer}</div>
-            <div className="clock-time" id='time-left'>{displayTime.minute}:{displayTime.second}</div>
+            <div className="clock-time" id='time-left'>{FormattedTime(displayTime.minute, displayTime.second)}</div>
         </div>
     )
 }
