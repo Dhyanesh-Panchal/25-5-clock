@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-export const Clock = ({ state }) => {
+export const Clock = ({ state, setState }) => {
 
     const [displayTime, setDisplayTime] = useState({ minute: state.sessionTime, second: state.seconds });
 
@@ -38,7 +38,7 @@ export const Clock = ({ state }) => {
                     else {
                         return {
                             minute: displayTime.minute,
-                            second: displayTime.second - 10
+                            second: displayTime.second - 50
                         }
                     }
                 })

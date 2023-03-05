@@ -45,7 +45,7 @@ export default class Timer extends Component {
 
                 <TimeSetter state={this.state} setState={this.setState} />
 
-                <Clock state={this.state} />
+                <Clock state={this.state} setState={this.setState} />
 
                 <div className="reset-buttons">
                     <button className='buttons' onClick={this.handlePausePlay} id='start_stop'> <i className="fa fa-play fa-2x"></i><i className="fa fa-pause fa-2x"></i></button>
