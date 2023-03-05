@@ -55,8 +55,9 @@ export const Clock = ({ state }) => {
 
     return (
         <div className='clock'>
-            <div className="clock-time-type">{state.currentTimer}</div>
-            <div className="clock-time">{displayTime.minute}:{displayTime.second}</div>
+            {/* <div className="clock-time-type" id="timer-label">Session</div> */}
+            <div className="clock-time-type" id='timer-label'>{state.currentTimer}</div>
+            <div className="clock-time" id='time-left'>{displayTime.minute}:{displayTime.second}</div>
         </div>
     )
 }

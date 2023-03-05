@@ -32,16 +32,16 @@ const TimeSetter = ({ state, setState }) => {
     return (
         <div className='time-setter'>
             <div className="break">
-                <div className="label-text">Break Length</div>
-                <button className="buttons fa fa-arrow-down fa-2x" onClick={handleBreakDecreament}></button>
-                <div className="type-display label-text">{state.breakTime}</div>
-                <button className="buttons fa fa-arrow-up fa-2x" onClick={handleBreakIncreament}></button>
+                <div className="label-text" id='break-label'>Break Length</div>
+                <button className="buttons fa fa-arrow-down fa-2x" onClick={handleBreakDecreament} id='break-decrement'></button>
+                <div className="type-display label-text" id="break-length">{state.breakTime}</div>
+                <button className="buttons fa fa-arrow-up fa-2x" onClick={handleBreakIncreament} id='break-increment'></button>
             </div>
             <div className="session">
-                <div className="label-text">Session Length</div>
-                <button className="buttons fa fa-arrow-down fa-2x" onClick={handleSessionDecreament}></button>
-                <div className="type-display label-text">{state.sessionTime}</div>
-                <button className="buttons fa fa-arrow-up fa-2x" onClick={handleSessionIncreament}></button>
+                <div className="label-text" id='session-label'>Session Length</div>
+                <button className="buttons fa fa-arrow-down fa-2x" onClick={handleSessionDecreament} id='session-decrement'></button>
+                <div className="type-display label-text" id="session-length">{state.sessionTime}</div>
+                <button className="buttons fa fa-arrow-up fa-2x" onClick={handleSessionIncreament} id='session-increment'></button>
             </div>
         </div>
     )
