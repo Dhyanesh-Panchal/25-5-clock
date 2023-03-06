@@ -21,7 +21,7 @@ export const Clock = ({ state, setState }) => {
                 second: 0
             })
         }
-    }, [state.sessionTime, state.breakTime])
+    }, [state.sessionTime, state.breakTime, state.currentTimer])
 
     useEffect(() => {
         console.log(state.play)
@@ -30,19 +30,32 @@ export const Clock = ({ state, setState }) => {
             myInterval = setInterval(() => {
                 setDisplayTime(displayTime => {
                     if (displayTime.second <= 0) {
-                        return {
-                            minute: displayTime.minute - 1,
-                            second: 59
+                        if (displayTime.minute == 0) {
+                            console.log('Inside Danger If');
+                            setState(state => ({
+                                ...state,
+                                currentTimer: (state.currentTimer == 'Session') ? ('Break') : ('Session')
+                            }))
+                            return {
+                                minute: displayTime.minute,
+                                second: displayTime.second
+                            }
+                        }
+                        else {
+                            return {
+                                minute: displayTime.minute - 1,
+                                second: 59
+                            }
                         }
                     }
                     else {
                         return {
                             minute: displayTime.minute,
-                            second: displayTime.second - 50
+                            second: displayTime.second - 1
                         }
                     }
                 })
-            }, 1000)
+            }, 1)
         }
         // This is an Anonoynomus function, It runs when this useEffect unmounts.
         return () => {
@@ -55,13 +68,11 @@ export const Clock = ({ state, setState }) => {
     let FormattedTime = (min, sec) => {
         let dMin = (min < 10) ? (`0${min}`) : (`${min}`);
         let dSec = (sec < 10) ? (`0${sec}`) : (`${sec}`);
-
         return `${dMin}:${dSec}`;
     }
 
     return (
         <div className='clock'>
-            {/* <div className="clock-time-type" id="timer-label">Session</div> */}
             <div className="clock-time-type" id='timer-label'>{state.currentTimer}</div>
             <div className="clock-time" id='time-left'>{FormattedTime(displayTime.minute, displayTime.second)}</div>
         </div>
