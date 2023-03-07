@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 export const Clock = ({ state, setState }) => {
 
     const [displayTime, setDisplayTime] = useState({ minute: state.sessionTime, second: state.seconds });
-
     useEffect(() => {
         console.log("reset")
         setDisplayTime({ minute: state.sessionTime, second: state.seconds })
@@ -24,17 +23,29 @@ export const Clock = ({ state, setState }) => {
     }, [state.sessionTime, state.breakTime, state.currentTimer])
 
     useEffect(() => {
-        console.log(state.play)
+        // console.log(state.play)
         let myInterval;
         if (state.play) {
             myInterval = setInterval(() => {
                 setDisplayTime(displayTime => {
                     if (displayTime.second <= 0) {
                         if (displayTime.minute == 0) {
-                            console.log('Inside Danger If');
+                            console.log('Transition');
+                            let beep = document.getElementById('beep');
+                            beep.play();
                             setState(state => ({
                                 ...state,
                                 currentTimer: (state.currentTimer == 'Session') ? ('Break') : ('Session')
+                            }))
+                            return {
+                                minute: displayTime.minute,
+                                second: displayTime.second
+                            }
+                        }
+                        else if (displayTime.minute < 0) {
+                            setState(state => ({
+                                ...state,
+                                sessionTime: 1
                             }))
                             return {
                                 minute: displayTime.minute,
@@ -55,7 +66,7 @@ export const Clock = ({ state, setState }) => {
                         }
                     }
                 })
-            }, 1)
+            }, 1000)
         }
         // This is an Anonoynomus function, It runs when this useEffect unmounts.
         return () => {

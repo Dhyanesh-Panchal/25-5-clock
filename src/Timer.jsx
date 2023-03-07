@@ -31,6 +31,10 @@ export default class Timer extends Component {
             displayTime: { minute: 25, second: 0 },
             resetCount: state.resetCount + 1
         }))
+
+        let beep = document.getElementById('beep');
+        beep.pause();
+        beep.currentTime = 0;
     }
     handlePausePlay() {
         this.setState(state => ({

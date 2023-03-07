@@ -10,7 +10,7 @@ const TimeSetter = ({ state, setState }) => {
                 sessionTime: state.sessionTime + 1
             }))
         }
-        // console.log("Session increament finished");
+        // console.log("Session increament finished", state.sessionTime);
     }
     const handleSessionDecreament = () => {
         if (state.sessionTime > 1) {
@@ -19,6 +19,7 @@ const TimeSetter = ({ state, setState }) => {
                 sessionTime: state.sessionTime - 1
             }))
         }
+        console.log("Session time is:" + state.sessionTime);
     }
     const handleBreakIncreament = () => {
         if (state.breakTime < 60) {
