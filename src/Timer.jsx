@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Clock } from './Clock'
 import TimeSetter from './TimeSetter'
+import beep from '../public/Beep.mp3';
 
 export default class Timer extends Component {
     constructor(props) {
@@ -55,6 +56,7 @@ export default class Timer extends Component {
                     <button className='buttons' onClick={this.handlePausePlay} id='start_stop'> <i className="fa fa-play fa-2x"></i><i className="fa fa-pause fa-2x"></i></button>
                     <button className='buttons fa fa-refresh fa-2x' onClick={this.handleReset} id="reset"></button>
                 </div>
+                <audio src={beep} id='beep' />
             </div>
         )
     }
